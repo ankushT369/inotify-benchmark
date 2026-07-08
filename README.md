@@ -58,5 +58,4 @@ The benchmarks show that increasing the event read buffer significantly improves
 
 In the second benchmark, increasing the buffer size beyond **8 MiB** produced almost no improvement in throughput, indicating that the application had reached a saturation point. This suggests that the read buffer is no longer the primary bottleneck, and other factors—such as the kernel's event queue, CPU scheduling, or event processing overhead—are likely limiting performance.
 
-Overall, these results indicate that using a sufficiently large event buffer is important for achieving good performance, but allocating excessively large buffers offers little additional benefit.
-
+Overall, these results indicate that a sufficiently large buffer is important for good performance, but **the optimal buffer size is approximately the size of your CPU's L3 cache**—in this case, **8 MiB**. Allocating excessively large buffers offers little additional benefit.
